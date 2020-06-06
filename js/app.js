@@ -6,6 +6,11 @@ class ToDo {
     this.time = new Date()
     this.completed = false
   }
+  markCompleted() {
+    // method changes the value of the boolean
+    this.completed = true
+    // console.log("markCompleted called for " + this.itemContent);
+  }
 }
 
 const app = {
@@ -32,6 +37,10 @@ const app = {
       li.innerText = todo.itemContent
       // store array index directly in the tag (HTML)
       li.dataset.todoIndex = i
+      // if statement for text completed (adding line through it)
+      if(todo.completed) {
+        li.style.textDecoration = "line-through"
+      }
       // and append it to the 'ul'
       ul.appendChild(li)
     }
@@ -39,6 +48,9 @@ const app = {
 
   markComplete: function(indexOfTaskToComplete) {
     console.log(`trying to mark task # ${indexOfTaskToComplete} as completed`);
+    const todo = this.todos[indexOfTaskToComplete]
+    todo.markCompleted()
+    this.printTodos()
   }
 }
 
