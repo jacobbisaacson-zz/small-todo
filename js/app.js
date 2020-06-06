@@ -4,6 +4,7 @@ class ToDo {
     this.itemContent = itemContent
     // pop a timestamp on there
     this.time = new Date()
+    this.completed = false
   }
 }
 
@@ -46,6 +47,13 @@ itemAddingForm.addEventListener('submit', (event) => {
   // clear the form
   itemTextInput.value = ""
 
+})
+
+// adding listener to delete (dbl click)
+
+const toDoUl = document.querySelector('#todo-list')
+toDoUl.addEventListener('dblclick', (event) => {
+  console.log("dbl click event.target", event.target);
 })
 
 
