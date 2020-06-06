@@ -41,13 +41,14 @@ const app = {
       if(todo.completed) {
         li.style.textDecoration = "line-through"
       }
+      // li.innerHTML += " (<span class='delete-item'>X</span>)"
       // and append it to the 'ul'
       ul.appendChild(li)
     }
   },
 
   markComplete: function(indexOfTaskToComplete) {
-    console.log(`trying to mark task # ${indexOfTaskToComplete} as completed`);
+    // console.log(`trying to mark task # ${indexOfTaskToComplete} as completed`);
     const todo = this.todos[indexOfTaskToComplete]
     todo.markCompleted()
     this.printTodos()
@@ -73,14 +74,15 @@ const toDoUl = document.querySelector('#todo-list')
 toDoUl.addEventListener('dblclick', (event) => {
   // access the array index here
   const indexOfItemClicked = event.target.dataset.todoIndex
-  console.log("indexOfItemClicked", indexOfItemClicked);
+  // console.log("indexOfItemClicked", indexOfItemClicked);
   app.markComplete(indexOfItemClicked)
 })
 
 const container = document.querySelector('#container')
 container.addEventListener('click', (event) => {
-  console.log("event.target", event.target);
-  console.log("WITH DATASET", event.target.dataset);
+  // console.log(event);
+  // console.log("event.target", event.target);
+  // console.log("WITH DATASET", event.target.dataset);
 })
 
 
