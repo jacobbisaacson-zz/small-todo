@@ -30,9 +30,15 @@ const app = {
       const li = document.createElement('li')
       // set the text
       li.innerText = todo.itemContent
+      // store array index directly in the tag (HTML)
+      li.dataset.todoIndex = i
       // and append it to the 'ul'
       ul.appendChild(li)
     }
+  },
+
+  markComplete: function(indexOfTaskToComplete) {
+    console.log(`trying to mark task # ${indexOfTaskToComplete} as completed`);
   }
 }
 
@@ -53,7 +59,16 @@ itemAddingForm.addEventListener('submit', (event) => {
 
 const toDoUl = document.querySelector('#todo-list')
 toDoUl.addEventListener('dblclick', (event) => {
-  console.log("dbl click event.target", event.target);
+  // access the array index here
+  const indexOfItemClicked = event.target.dataset.todoIndex
+  console.log("indexOfItemClicked", indexOfItemClicked);
+  app.markComplete(indexOfItemClicked)
+})
+
+const container = document.querySelector('#container')
+container.addEventListener('click', (event) => {
+  console.log("event.target", event.target);
+  console.log("WITH DATASET", event.target.dataset);
 })
 
 
