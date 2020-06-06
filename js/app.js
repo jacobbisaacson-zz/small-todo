@@ -20,6 +20,8 @@ const app = {
   printTodos: function() {
     // grab the 'ul'
     const ul = document.querySelector('#todo-list')
+    // delete the old 'li's'
+    ul.innerHTML = ""
     // loop over this.todos (could also use map)
     for(let i = 0; i < this.todos.length; i++) {
       let todo = this.todos[i]
