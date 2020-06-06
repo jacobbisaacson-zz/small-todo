@@ -14,6 +14,22 @@ const app = {
     const todo = new ToDo(str)
     // push into the array
     this.todos.push(todo)
+    this.printTodos()
+  },
+
+  printTodos: function() {
+    // grab the 'ul'
+    const ul = document.querySelector('#todo-list')
+    // loop over this.todos (could also use map)
+    for(let i = 0; i < this.todos.length; i++) {
+      let todo = this.todos[i]
+      // create an 'li'
+      const li = document.createElement('li')
+      // set the text
+      li.innerText = todo.itemContent
+      // and append it to the 'ul'
+      ul.appendChild(li)
+    }
   }
 }
 
