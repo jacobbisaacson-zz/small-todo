@@ -1,1 +1,1 @@
-# goodpix-todo
+# small-todo
